@@ -1,0 +1,38 @@
+body {
+  background: linear-gradient(to bottom, transparent 0%,#fbf7ca 50%,transparent 100%);
+
+}
+
+h1, .fancy {
+  font-family: 'Fredericka the Great', cursive;
+  color: pink;
+}
+
+h2.fancy {
+  font-size: 2rem;
+  color: #33c3f0; /* same color as skeleton primary buttons */
+}
+
+img {
+  object-fit: cover;
+  width: 40rem;
+  height: 40rem;
+}
+
+.search {
+  padding-top: 1rem;
+}
+
+.image-wrap, .entry {
+  background-color: rgba(221, 135, 34, 0.2);
+}
+
+.entry {
+  background-color: rgba(221, 135, 34, 0.2);
+  padding: 2rem;
+  border: .5rem solid rgba(51, 195, 240, 0.48);
+}
+
+#searchButton {
+  padding: 0 12px;
+}
