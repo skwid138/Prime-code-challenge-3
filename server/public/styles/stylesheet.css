@@ -46,3 +46,15 @@ img {
 .toggle {
   display: none;
 }
+
+#modal {
+  display: none; /* start not displayed */
+  z-index: 1;
+  position: absolute;
+  background: white;
+  left: 10%;
+  top: 33%;
+  width: 80%;
+  border-radius: 1em;
+  padding: 2rem;
+}
