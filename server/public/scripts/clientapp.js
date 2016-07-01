@@ -2,11 +2,19 @@ $(document).ready(function () {
   var $treats = $('#treat-display');
   console.log($treats);
 
+  /**---------- Event Handling ----------**/
+  $('#searchButton').on('click', function (event) {
+    event.preventDefault();
+
+    var queryString = $('#search').val();
+
+    searchTreats(queryString);
+  });
   /**---------- AJAX Functions ----------**/
 
   // GET /treats
   function getTreats() {
-    $ajax({
+    $.ajax({
       method: 'GET',
       url: '/treats',
     })
@@ -21,7 +29,7 @@ $(document).ready(function () {
 
   // GET /treats?q=thing
   function searchTreats(query) {
-    $ajax({
+    $.ajax({
       method: 'GET',
       url: '/treats?q=' + query,
     })
@@ -36,7 +44,7 @@ $(document).ready(function () {
 
   // POST /treats
   function postTreat(treat) {
-    $ajax({
+    $.ajax({
       method: 'POST',
       url: '/treats',
       data: treat,
@@ -50,7 +58,7 @@ $(document).ready(function () {
 
   // PUT /treats/1
   function putTreat(treatId, treat) {
-    $ajax({
+    $.ajax({
       method: 'PUT',
       url: '/treats/' + treatId,
       data: treat,
@@ -64,7 +72,7 @@ $(document).ready(function () {
 
   // DELETE /treats/1
   function deleteTreat(treatId) {
-    $ajax({
+    $.ajax({
       method: 'DELETE',
       url: '/treats/' + treatId,
     })
