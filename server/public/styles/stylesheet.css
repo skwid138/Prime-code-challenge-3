@@ -31,8 +31,18 @@ img {
   background-color: rgba(221, 135, 34, 0.2);
   padding: 2rem;
   border: .5rem solid rgba(51, 195, 240, 0.48);
+  margin-bottom: 1rem;
 }
 
 #searchButton {
   padding: 0 12px;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+}
+
+.toggle {
+  display: none;
 }

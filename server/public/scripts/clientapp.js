@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var $treats = $('#treat-display');
-  console.log($treats);
 
+  //console.log($treats);
   /**---------- Event Handling ----------**/
   $('#searchButton').on('click', function (event) {
     event.preventDefault();
@@ -9,6 +9,11 @@ $(document).ready(function () {
     var queryString = $('#search').val();
 
     searchTreats(queryString);
+  });
+
+  $('#modeToggle').on('click', function (event) {
+    event.preventDefault();
+    toggleView();
   });
   /**---------- AJAX Functions ----------**/
 
@@ -93,12 +98,37 @@ $(document).ready(function () {
       $treats.append('<div class="treat row"></div>');
     }
 
-    $('treat-row:last-of-type').append('<div class="six columns">'
-                            + '<div class="image-wrap">'
-                            + '<img src="' + treat.pic + '" class="u-max-full-width" />'
-                            + '</div>'
-                            + '<h3>' + treat.name + '</h3>'
-                            + '<p>' + treat.description + '</p>'
-                            + '</div>');
+    var $treat = $('<div class="six columns">' +
+                  '<div class="image-wrap">' +
+                  '<img src="' + treat.pic + '" class="u-max-full-width" />' +
+                  '<div class="toggle row">' +
+                  '<div class="six columns">' +
+                  '<button class="edit u-full-width">Edit</button>' +
+                  '</div>' +
+                  '<div class="six columns">' +
+                  '<button class="delete u-full-width">Delete</button>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<h3>' + treat.name + '</h3>' +
+                  '<p>' + treat.description + '</p>' +
+                  '</div>');
+
+    $treat.data('id', treat.id);
+
+    $('treat-row:last-of-type').append($treat);
   }
+
+  function toggleView() {
+    if ($('#modeToggle').text() == 'View') {
+      // change button to Edit
+      $('#modeToggle').text('Edit');
+    } else {
+      //change button to View
+      $('#modeToggle').text('View');
+    }
+
+    $('.toggle').toggle();
+  }
+
 });
