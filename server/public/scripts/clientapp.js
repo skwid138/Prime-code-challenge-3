@@ -15,6 +15,12 @@ $(document).ready(function () {
     event.preventDefault();
     toggleView();
   });
+
+  $('.delete').on('click', function (event) {
+    var $treat = $(this).closest('.individual-treat');
+    console.log($treat);
+    deleteTreat($treat.data('id'));
+  });
   /**---------- AJAX Functions ----------**/
 
   // GET /treats
@@ -90,6 +96,7 @@ $(document).ready(function () {
   /** ---------- DOM Functions ----------**/
   function appendTreat(treat) {
 
+    // append a treat to the DOM and add data attributes
     // treat-display -> treat row -> treat
     var treatCount = $treats.children().children().length;
 
@@ -98,7 +105,7 @@ $(document).ready(function () {
       $treats.append('<div class="treat row"></div>');
     }
 
-    var $treat = $('<div class="six columns">' +
+    var $treat = $('<div class="six columns individual-treat">' +
                   '<div class="image-wrap">' +
                   '<img src="' + treat.pic + '" class="u-max-full-width" />' +
                   '<div class="toggle row">' +
@@ -119,6 +126,7 @@ $(document).ready(function () {
     $('treat-row:last-of-type').append($treat);
   }
 
+  // show/hide edit buttons
   function toggleView() {
     if ($('#modeToggle').text() == 'View') {
       // change button to Edit
