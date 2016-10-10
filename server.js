@@ -1,9 +1,10 @@
+/** ---- DO NOT MODIFY THIS FILE ---- **/
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
-console.log(__dirname + 'public');
+var treats = require('./routes/treats');
 
 app.use(express.static('public'));
 
