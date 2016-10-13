@@ -116,6 +116,7 @@ $(document).ready(function () {
     .done(function () {
       console.log('PUT /treats/', treatId);
 
+      toggleView();
       getTreats();
     });
   }
@@ -129,6 +130,7 @@ $(document).ready(function () {
     .done(function () {
       console.log('DELETE /treats/', treatId);
 
+      toggleView();
       getTreats();
     });
   }

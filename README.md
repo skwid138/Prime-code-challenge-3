@@ -20,11 +20,16 @@ necessary to view, add, update, and delete treats from the treats
 database. In fact, said developer even stubbed out most of your
 server-side code, as well!
 
-Unfortunately, they have no idea how to create the required routes
-and SQL queries to get data from the database onto the page:
+A server-side developer has started the of creating the routes needed
+to make this application work. They have implemented
 
 * `GET /treats` returns a list of potential treats (e.g. cupcakes, goldfish, etc) and their image URLs
-* `GET /treats?q=donut` should return only treats that match the query parameter
+
+The rest is up to you:
 * `POST /treats` expects a treat description and link to a url image
 * `PUT /treats/:id` updates the treat description
 * `DELETE /treats/:id` deletes a treat
+
+If you're feeling fancy and have some time to spare, try this one
+
+* `GET /treats?q=donut` should return only treats that match the query parameter
