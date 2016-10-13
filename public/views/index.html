@@ -32,7 +32,7 @@
         <!--- Main treat display -->
         <div class="eight columns" id="treat-display">
           <!-- Treat row should repeat for every 2 treats -->
-          <div class="treat row">
+          <!-- <div class="treat row">
             <div class="six columns individual-treat">
               <div class="image-wrap">
                 <img src="/assets/cupcake.jpg" class="u-max-full-width" />
@@ -47,8 +47,8 @@
               <p>
                 Delicious cupcakes mmmm
               </p>
-            </div>
-            <div class="six columns individual-treat">
+            </div> -->
+            <!-- <div class="six columns individual-treat">
               <div class="image-wrap">
                 <img src="/assets/donuts.jpg" class="u-max-full-width" />
                 <div class="toggle row">
@@ -62,11 +62,11 @@
               <p>
                 Delicious cupcakes mmmm
               </p>
-            </div>
+            </div> -->
 
-          </div>
+          <!-- </div> -->
           <!-- Treat row should repeat for every 2 treats -->
-          <div class="treat row">
+          <!-- <div class="treat row">
             <div class="six columns individual-treat">
               <div class="image-wrap">
                 <img src="/assets/cupcake.jpg" class="u-max-full-width" />
@@ -81,7 +81,7 @@
               <p>
                 Delicious cupcakes mmmm
               </p>
-            </div>
+            </div> -->
             <!-- <div class="six columns individual-treat">
               <div class="image-wrap">
                 <img src="../assets/donuts.jpg" class="u-max-full-width" />
@@ -97,25 +97,25 @@
                 Delicious cupcakes mmmm
               </p>
             </div> -->
-          </div>
+          <!-- </div> -->
         </div>
         <!-- sidebar -->
         <div class="four columns">
           <!--- Add treat form -->
           <div class="entry row">
             <h2 class="fancy">add a treat</h2>
-            <form>
+            <form id="add-treat">
               <div class="row">
                 <label for="treatNameInput">Name</label>
-                <input class="u-full-width" type="text" placeholder="Cake" id="treatNameInput" />
+                <input class="u-full-width" type="text" placeholder="Cake" name="name" id="treatNameInput" />
               </div>
               <div class="row">
                 <label for="treatDescriptionInput">Description</label>
-                <textarea class="u-full-width" placeholder="Tasty cake is tasty" id="treatDescriptionInput"></textarea>
+                <textarea class="u-full-width" placeholder="Tasty cake is tasty" name="description" id="treatDescriptionInput"></textarea>
               </div>
               <div class="row">
                 <label for="treatUrlInput">Image Url</label>
-                <input class="u-full-width" type="text" placeholder="http://cake.com/layer.jpg" id="treatUrlInput" />
+                <input class="u-full-width" type="text" placeholder="http://cake.com/layer.jpg" name="pic" id="treatUrlInput" />
               </div>
               <input class="button-primary" type="submit" value="submit" />
             </form>

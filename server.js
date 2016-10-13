@@ -7,6 +7,9 @@ var path = require('path');
 var treats = require('./routes/treats');
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/treats', treats);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));

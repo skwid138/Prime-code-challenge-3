@@ -1,5 +1,6 @@
 /** --- DO NOT MODIFY THIS FILE --- **/
 $(document).ready(function () {
+  getTreats();
 
   /**---------- Event Handling ----------**/
   $('#searchButton').on('click', function (event) {
@@ -8,6 +9,15 @@ $(document).ready(function () {
     var queryString = $('#search').val();
 
     searchTreats(queryString);
+  });
+
+  $('#add-treat').on('submit', function (event) {
+    event.preventDefault();
+
+    var treat = $(this).serialize();
+    console.log('Attempting to POST treat::', treat);
+
+    postTreat(treat);
   });
 
   $('#modeToggle').on('click', function (event) {
@@ -124,6 +134,7 @@ $(document).ready(function () {
   }
   /** ---------- DOM Functions ----------**/
   function appendTreat(treat) {
+    var $treats = $('#treat-display');
 
     // append a treat to the DOM and add data attributes
     // treat-display -> treat row -> treat
@@ -152,7 +163,8 @@ $(document).ready(function () {
 
     $treat.data('id', treat.id);
 
-    $('treat-row:last-of-type').append($treat);
+    $('.treat.row:last-of-type').append($treat);
+
   }
 
   // show/hide edit buttons
