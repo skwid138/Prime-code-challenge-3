@@ -12,6 +12,13 @@ CREATE TABLE treats (
 	pic varchar(255)
 );
 ```
+Insert some starter data:
+
+```SQL
+INSERT INTO treats (name, description, pic)
+VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
+('Donuts', 'Mmmm donuts', '/assets/donuts.jpg');
+```
 
 ## Overview
 
