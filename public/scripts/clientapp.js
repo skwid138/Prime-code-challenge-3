@@ -69,6 +69,8 @@ $(document).ready(function () {
       url: '/treats',
     })
     .done(function (treatArray) {
+      $('#treat-display').empty();
+
       console.log('GET /treats returned ', treatArray);
 
       $.each(treatArray, function (index, treat) {
@@ -100,6 +102,9 @@ $(document).ready(function () {
       data: treat,
     })
     .done(function () {
+
+      $('#add-treat :input').not(':button').val('');
+
       console.log('POST /treats sent ', treat);
 
       getTreats();
