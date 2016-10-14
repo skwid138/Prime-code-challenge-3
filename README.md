@@ -37,7 +37,7 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 ### Baseline
 Before we can launch, we at least need to be able to add new treats.
 
-* `POST /treats` expects a treat description and link to a url image
+* `POST /treats` expects a treat name, description and link to a url image
 
 ### Special Sauce
 Our client will be ecstatic if we can also deliver the ability to update and
