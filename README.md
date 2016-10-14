@@ -34,12 +34,19 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 
 ## TODO
 
-Create the functionality for each of the following routes.
+### Baseline
+Before we can launch, we at least need to be able to add new treats.
 
 * `POST /treats` expects a treat description and link to a url image
+
+### Special Sauce
+Our client will be ecstatic if we can also deliver the ability to update and
+delete, but consider these "nice-to-haves".
+
 * `PUT /treats/:id` updates the treat description
 * `DELETE /treats/:id` deletes a treat
 
+### Eye of the Tiger
 **If you're feeling fancy and have some time to spare**, try this one
 
 * `GET /treats?q=donut` should return only treats that match the query parameter
