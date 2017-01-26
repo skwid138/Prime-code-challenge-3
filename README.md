@@ -14,7 +14,7 @@ to make this application work. They have implemented
 
 ## Database Setup
 
-Create table in your "rho" database (or whatever database you want to use).
+Create table in your "upsilon" database (or whatever database you want to use).
 
 ```SQL
 CREATE TABLE treats (
