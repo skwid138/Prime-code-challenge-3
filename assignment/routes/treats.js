@@ -2,7 +2,7 @@ var router = require('express').Router(); // DO NOT MODIFY
 var pg = require('pg'); // DO NOT MODIFY
 
 var config = {
-  database: 'upsilon', // change this if needed
+  database: 'omega', // change this if needed
 };
 
 var pool = new pg.Pool(config); // DO NOT MODIFY
