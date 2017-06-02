@@ -143,6 +143,25 @@ describe('Special Sauce: The server', function () {
     });
 });
 
+describe('Eye of the Tiger: The server', function () {
+    it('responds to GET requests at /treats?q=dirt', function (done) {
+      addTestRecord()
+      .then(function () {
+        request(server)
+            .get('/treats?q=dirt')
+                .expect(200)
+                .expect(function (res) {
+                  let pass = Array.isArray(res.body) && res.body.length === 1;
+
+                  if (!pass) {
+                    throw new Error('response body was not an array');
+                  }
+                })
+                .end(done);
+            });
+      });
+  });
+
 function getLastRecordId() {
   return request(server)
     .get('/treats')
@@ -150,4 +169,11 @@ function getLastRecordId() {
       var lastIndex = response.body.length - 1;
       return response.body[lastIndex].id;
     });
+}
+
+function addTestRecord() {
+  return request(server)
+    .post('/treats')
+    .type('form')
+    .send({ name: 'dirt', description: 'disgusting dirt', pic: 'http://gross' })
 }
