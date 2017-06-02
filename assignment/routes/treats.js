@@ -1,9 +1,6 @@
 var router = require('express').Router(); // DO NOT MODIFY
 var pg = require('pg'); // DO NOT MODIFY
-
-var config = {
-  database: 'omega', // change this if needed
-};
+var config = require('../db');
 
 var pool = new pg.Pool(config); // DO NOT MODIFY
 

@@ -2,10 +2,7 @@
 var request = require('supertest');
 var server = require('../assignment/server');
 var pg = require('pg');
-
-var config = {
-  database: 'omega', // change this if needed
-};
+var config = require('../assignment/db');
 
 var pool = new pg.Pool(config);
 
