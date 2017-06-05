@@ -12,9 +12,24 @@ to make this application work. They have implemented
 
 * `GET /treats` returns a list of potential treats (e.g. cupcakes, goldfish, etc) and their image URLs
 
-## Database Setup
+## Setup
 
-Create table in your "omega" database (or whatever database you want to use).
+## Server
+
+**IMPORTANT:** Make sure to start postgres.
+
+1. Fork and clone repo.
+2. `npm install` to get all dependencies.
+3. `npm start` to start server.
+4. `npm test` to run tests.
+
+### Database
+
+**On npm install, a script will run that creates the database for you.**
+
+If NOT created, use the info below.
+
+Table created in "omega" database:
 
 ```SQL
 CREATE TABLE treats (
@@ -24,7 +39,7 @@ CREATE TABLE treats (
 	pic varchar(255)
 );
 ```
-Insert some starter data:
+Treats table starter data:
 
 ```SQL
 INSERT INTO treats (name, description, pic)
