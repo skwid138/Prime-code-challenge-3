@@ -10,7 +10,6 @@ router.get('/', function (req, res) {
   console.log('req.query ->', req.query);
   var treatId = req.query.q;
   console.log('req.query.q ->', treatId);
-  
   pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
@@ -18,18 +17,24 @@ router.get('/', function (req, res) {
       done();
       return;
     }
+    //var queryString = "SELECT * FROM treats WHERE (description LIKE '%$2%') OR (name LIKE '%$2%');";
+    // var values = [];
     var queryString = 'SELECT * FROM treats;';
-    if (treatId !== undefined) {
-      queryString = "SELECT * FROM treats WHERE (description LIKE '%" + treatId + "%') OR (name LIKE '%" + treatId + "%');";
+    var values = [];
+
+    if (treatId) {
+      treatId = '%' + treatId + '%';
+      queryString = 'SELECT * FROM treats WHERE (description LIKE $1) OR (name LIKE $1);';
+      values.push(treatId);
     }
-    client.query(queryString , function (err, result) {
+    client.query(queryString, values, function (err, result) {
         done();
         if (err) {
           console.log('Error querying the DB', err);
           res.sendStatus(500);
           return;
         }
-        console.log('Got rows from the DB:', result.rows);
+        console.log('Got rows from the DB:', result);
         res.send(result.rows);
       });
   });
