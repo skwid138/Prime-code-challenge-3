@@ -1,3 +1,3 @@
 module.exports = {
-  database: 'omega', // change this if needed
+  database: 'treatsDB', // change this if needed
 };

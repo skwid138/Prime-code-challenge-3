@@ -4,7 +4,7 @@
   "description": "Code Challenge 3",
   "main": "server.js",
   "scripts": {
-    "postinstall": "psql -d omega -f treats.sql",
+    "postinstall": "createdb treatsDB; psql -d treatsDB -f treats.sql;",
     "start": "node assignment/server.js",
     "test": "mocha tests"
   },

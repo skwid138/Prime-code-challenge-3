@@ -1,4 +1,4 @@
-# Checkpoint/Code Challenge 3 (Express/SQL)
+#Code Challenge 3 (Express/pSQL)
 
 ## Overview
 
@@ -29,7 +29,7 @@ to make this application work. They have implemented
 
 If NOT created, use the info below.
 
-Table created in "omega" database:
+Table created in "treatsDB" database:
 
 ```SQL
 CREATE TABLE treats (
@@ -62,6 +62,6 @@ delete, but consider these "nice-to-haves".
 - [ ] `DELETE /treats/:id` deletes a treat
 
 ### Eye of the Tiger
-**If you're feeling fancy and have some time to spare**, try this one
+**If you're feeling fancy and have some time to spare**, try this one. You might need to research query strings and express. 
 
 - [ ] `GET /treats?q=donut` should return only treats that match the query parameter
