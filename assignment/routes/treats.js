@@ -7,6 +7,10 @@ var pool = new pg.Pool(config); // DO NOT MODIFY
 // GET /treats
 // Only modify IF you are doing Eye of the Tiger
 router.get('/', function (req, res) {
+  console.log('req.query ->', req.query);
+  var treatId = req.query.q;
+  console.log('req.query.q ->', treatId);
+  
   pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
@@ -14,18 +18,20 @@ router.get('/', function (req, res) {
       done();
       return;
     }
-
-    client.query('SELECT * FROM treats;', function (err, result) {
-      done();
-      if (err) {
-        console.log('Error querying the DB', err);
-        res.sendStatus(500);
-        return;
-      }
-
-      console.log('Got rows from the DB:', result.rows);
-      res.send(result.rows);
-    });
+    var queryString = 'SELECT * FROM treats;';
+    if (treatId !== undefined) {
+      queryString = "SELECT * FROM treats WHERE (description LIKE '%" + treatId + "%') OR (name LIKE '%" + treatId + "%');";
+    }
+    client.query(queryString , function (err, result) {
+        done();
+        if (err) {
+          console.log('Error querying the DB', err);
+          res.sendStatus(500);
+          return;
+        }
+        console.log('Got rows from the DB:', result.rows);
+        res.send(result.rows);
+      });
   });
 });
 

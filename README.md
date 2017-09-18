@@ -52,14 +52,14 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 ### Baseline
 Before we can launch, we at least need to be able to add new treats.
 
-- [ ] `POST /treats` expects a treat name, description and link to a url image
+- [X] `POST /treats` expects a treat name, description and link to a url image
 
 ### Special Sauce
 Our client will be ecstatic if we can also deliver the ability to update and
 delete, but consider these "nice-to-haves".
 
-- [ ] `PUT /treats/:id` updates the treat description
-- [ ] `DELETE /treats/:id` deletes a treat
+- [X] `PUT /treats/:id` updates the treat description
+- [X] `DELETE /treats/:id` deletes a treat
 
 ### Eye of the Tiger
 **If you're feeling fancy and have some time to spare**, try this one. You might need to research query strings and express. 
