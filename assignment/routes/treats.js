@@ -61,6 +61,30 @@ router.post('/', function (req, res) {
 }); // end POST
 
 // PUT /treats/<id>
+router.put('/:id', function (req, res) {
+  console.log('in PUT task route');
+  var treatId = req.params.id;
+  var description = req.body.description;
+  pool.connect(function (err, client, done) {
+    if (err) {
+      console.log('PUT connection error ->', err);
+      res.sendStatus(500);
+      done();
+    } else {
+      var queryString = "UPDATE treats SET description=$2 WHERE id=$1";
+      var values = [treatId, description];
+      client.query(queryString, values, function (queryErr, resObj) {
+        if (queryErr) {
+          console.log('Query PUT Error ->', queryErr);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(201);
+        } // end else
+        done();
+      }); // end query
+    } // end else
+  }); // end connect
+}); // end PUT
 
 // DELETE /treats/<id>
 
