@@ -87,6 +87,28 @@ router.put('/:id', function (req, res) {
 }); // end PUT
 
 // DELETE /treats/<id>
+router.delete('/:id', function (req, res) {
+  console.log('in DELETE task route');
+  var treatId = req.params.id;
+  pool.connect(function (err, client, done) {
+    if (err) {
+      console.log('DELETE connection error ->', err);
+      res.sendStatus(500);
+      done();
+    } else {
+      var queryString = 'DELETE FROM treats WHERE id=$1';
+      var values = [treatId];
+      client.query(queryString, values, function (queryErr, resObj) {
+        if (queryErr) {
+          console.log('Query DELETE Error ->', queryErr);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(202);
+        } // end else
+      }); // end query
+    } // end else
+  }); // end connect
+}); // end DELETE
 
 /** ---- DO NOT MODIFY BELOW ---- **/
 module.exports = router;
